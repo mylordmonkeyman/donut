@@ -42,10 +42,18 @@ endif()
 add_executable(${PROJECT_NAME} ${DONUT_SOURCES} ${DONUT_HEADERS} ${DONUT_RC} ${DONUT_MANIFEST})
 set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
+set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ".lib" ${CMAKE_FIND_LIBRARY_SUFFIXES})
+
+find_library(BULLET_DYNAMICS_LIB NAMES libBulletDynamics.a BulletDynamics)
+find_library(BULLET_COLLISION_LIB NAMES libBulletCollision.a BulletCollision)
+find_library(BULLET_LINEARMATH_LIB NAMES libLinearMath.a LinearMath)
+
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE
 		SDL2::SDL2
-		Bullet::Bullet
+		${BULLET_DYNAMICS_LIB}
+		${BULLET_COLLISION_LIB}
+		${BULLET_LINEARMATH_LIB}
 		OpenAL::OpenAL
 		fmt::fmt
 	)
