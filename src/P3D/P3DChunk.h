@@ -285,4 +285,8 @@ struct P3DUtil
 	}
 };
 
+ inline auto format_as(ChunkType c) {
+        return fmt::underlying(c); 
+}
+
 } // namespace Donut::P3D
