@@ -94,7 +94,7 @@
 #undef IMGUI_IMPL_OPENGL_LOADER_GLAD
 #undef IMGUI_IMPL_OPENGL_LOADER_CUSTOM
 #endif
-#endif
+//#endif
 
 // GL includes
 #if defined(IMGUI_IMPL_OPENGL_ES2)
