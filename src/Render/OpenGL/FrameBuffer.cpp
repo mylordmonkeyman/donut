@@ -259,7 +259,9 @@ void FrameBuffer::ResolveTextures()
 
 			if (_depthTextureHandle)
 			{
-				glBlitFramebuffer(0, 0, _width, _height, 0, 0, _width, _height, GL_DEPTH_BUFFER_BIT, GL_LINEAR);
+				//Open GL ES 3.2 port change
+				glBlitFramebuffer(0, 0, _width, _height, 0, 0, _width, _height, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+				//glBlitFramebuffer(0, 0, _width, _height, 0, 0, _width, _height, GL_DEPTH_BUFFER_BIT, GL_LINEAR);
 			}
 
 			drawBuffers.push_back(colourAttachment);
