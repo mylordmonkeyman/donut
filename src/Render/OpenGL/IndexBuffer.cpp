@@ -56,7 +56,7 @@ std::size_t IndexBuffer::GetTypeSize(GLenum type)
 	case GL_INT:
 	case GL_UNSIGNED_INT:
 	case GL_FLOAT: return 4;
-	case GL_DOUBLE: return 8;
+	//case GL_DOUBLE: return 8;
 	default: break;
 	}
 
