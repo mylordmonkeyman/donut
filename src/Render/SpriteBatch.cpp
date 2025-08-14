@@ -12,7 +12,10 @@
 namespace Donut
 {
 std::string SpriteBatchVertSrc = R"glsl(
-		#version 150 core
+		#version 320 es
+		//#version 150 core
+		// Changes for Open GL ES 3.2
+		precision highp float; 
 
 		in vec2 vert_position;
 		in vec2 vert_texcoord;
@@ -32,7 +35,10 @@ std::string SpriteBatchVertSrc = R"glsl(
 	)glsl";
 
 std::string SpriteBatchFragSrc = R"glsl(
-		#version 150 core
+		#version 320 es
+		//#version 150 core
+		// Changes for Open GL ES 3.2
+		precision highp float; 
 
 		uniform sampler2D texture;
 
@@ -43,7 +49,8 @@ std::string SpriteBatchFragSrc = R"glsl(
 
 		void main()
 		{
-			outColor = texture2D(texture, frag_texcoord) * frag_color;
+			outColor = texture(texture, frag_texcoord) * frag_color;
+//			outColor = texture2D(texture, frag_texcoord) * frag_color;
 		}
 	)glsl";
 
