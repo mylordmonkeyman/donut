@@ -1,4 +1,8 @@
-#version 330
+#version 320 es
+// #version 330
+// Change for Open GL ES 3.2
+precision highp float;
+
 
 layout(location = 0) in vec2 vertex;
 layout(location = 1) in vec3 offset;
