@@ -83,8 +83,10 @@ Game::Game(int argc, char** argv)
 
 	ImGui::CreateContext();
 	ImGui_ImplSDL2_InitForOpenGL(static_cast<SDL_Window*>(*_window), static_cast<SDL_GLContext*>(*_window));
-	ImGui_ImplOpenGL3_Init("#version 130");
-
+	//ImGui_ImplOpenGL3_Init("#version 130");
+	//Change for Open GL ES 3.2
+	ImGui_ImplOpenGL3_Init("#version 300 es");
+	
 	// const float dpi_scale = 2.0f;
 	// ImGuiIO& io = ImGui::GetIO();
 	// ImGui::GetStyle().ScaleAllSizes(dpi_scale);
