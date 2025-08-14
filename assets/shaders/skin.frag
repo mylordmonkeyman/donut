@@ -1,4 +1,7 @@
-#version 330
+#version 320 es
+//#version 330
+// Changes to Open GL ES
+precision highp float;
 
 uniform sampler2D diffuseTex;
 
