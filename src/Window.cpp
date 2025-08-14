@@ -75,9 +75,9 @@ Window::Window(const std::string& title, const int width, const int height)
 	          << "Renderer: " << glGetString(GL_RENDERER) << "\n"
 	          << "Version: " << glGetString(GL_VERSION) << "\n"
 	          << std::endl;
-
-	if (!GLAD_GL_VERSION_4_3)
-		throw std::runtime_error("Your OpenGL version is too low, expected 4.3 or higher.");
+	// Edit for Open GL ES 3.2 compliance -- TODO: add in new check
+	// if (!GLAD_GL_VERSION_4_3)
+	//	throw std::runtime_error("Your OpenGL version is too low, expected 4.3 or higher.");
 
 	SDL_ShowWindow(_window.get());
 }
