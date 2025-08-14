@@ -58,7 +58,10 @@ void FrameBuffer::Load()
 
 	if (_format._colourBufferCount == 0)
 	{
-		glDrawBuffer(GL_NONE);
+		//Open GL ES 3.2 replacement
+		GLenum none = GL_NONE;
+    	glDrawBuffers(1, &none);
+		// glDrawBuffer(GL_NONE);
 		glReadBuffer(GL_NONE);
 	}
 
@@ -239,8 +242,10 @@ void FrameBuffer::ResolveTextures()
 		for (size_t i = 0; i < _colourTextureHandles.size(); ++i)
 		{
 			GLenum colourAttachment = (GLenum)(GL_COLOR_ATTACHMENT0 + i);
-
-			glDrawBuffer(colourAttachment);
+			// Open GL ES 3.2 replacement
+			GLenum drawBuf = colourAttachment;
+			glDrawBuffers(1, &drawBuf);  // replaces glDrawBuffer()
+			//glDrawBuffer(colourAttachment);
 			glReadBuffer(colourAttachment);
 
 			GLbitfield bitfield = GL_COLOR_BUFFER_BIT;
