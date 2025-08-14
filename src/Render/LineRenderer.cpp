@@ -11,7 +11,11 @@
 namespace Donut
 {
 std::string VertSrc = R"glsl(
-	#version 150 core
+	//Changes for Open GL ES 3.2
+	#version 320 es
+	//#version 150 core
+	precision highp float;
+	precision highp int;
 
 	in vec3 position;
 	in vec4 color;
@@ -28,7 +32,11 @@ std::string VertSrc = R"glsl(
 )glsl";
 
 std::string FragSrc = R"glsl(
-	#version 150 core
+	//Changes for Open GL ES 3.2
+	#version 320 es
+	//#version 150 core
+	precision highp float;
+	precision highp int;
 
 	in vec4 vertColor;
 
