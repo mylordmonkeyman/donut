@@ -1,4 +1,11 @@
-#version 330
+#version 320 es
+//#version 330
+//Changes for Open GL ES 3.2
+precision highp float;
+precision highp int;
+precision highp sampler2D;
+precision highp samplerBuffer;
+
 
 layout(location = 0) in vec3 position;
 layout(location = 1) in vec3 normal;
