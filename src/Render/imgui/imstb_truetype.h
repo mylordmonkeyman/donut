@@ -299,6 +299,8 @@ void my_stbtt_initfont(void)
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 }
 
+//not Open GL ES 3.2 compliant, but not used.  Comment out. 
+/*
 void my_stbtt_print(float x, float y, char *text)
 {
    // assume orthographic projection with units = screen pixels, origin at top left
@@ -317,7 +319,7 @@ void my_stbtt_print(float x, float y, char *text)
       ++text;
    }
    glEnd();
-}
+} */
 #endif
 //
 //
