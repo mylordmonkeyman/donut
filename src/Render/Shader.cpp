@@ -84,7 +84,13 @@ Shader::Shader(const P3D::Shader& shader): _name(shader.GetName())
 			_blendMode = (BlendMode)param->GetValue();
 		}
 	}
-
+	try{
+		GLfloat maxAniso = 0.0f;
+		glGetFloatv(0x84FF, &maxAniso);
+		std::clog << "maxAniso: " << maxAniso << std::endl;
+	}catch (std::runtime_error &e) {
+		std::clog << "erropr fetching maxAniso: " << e.what() << std::endl;
+	}
 	glSamplerParameterf(_glSampler, 0x84FE, 16);
 }
 
