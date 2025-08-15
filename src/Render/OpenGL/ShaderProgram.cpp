@@ -48,6 +48,7 @@ ShaderProgram::ShaderProgram(const std::string& vertexSource, const std::string&
 		delete[] infoLog;
 
 		glDeleteProgram(_program);
+		_program = 0;
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
 
