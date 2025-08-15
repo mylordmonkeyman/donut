@@ -11,10 +11,9 @@
 
 namespace Donut
 {
+// Changes for Open GL ES 3.2
 std::string SpriteBatchVertSrc = R"glsl(
 		#version 320 es
-		//#version 150 core
-		// Changes for Open GL ES 3.2
 		precision highp float; 
 
 		in vec2 vert_position;
@@ -36,8 +35,7 @@ std::string SpriteBatchVertSrc = R"glsl(
 
 std::string SpriteBatchFragSrc = R"glsl(
 		#version 320 es
-		//#version 150 core
-		// Changes for Open GL ES 3.2
+		
 		precision highp float; 
 
 		uniform sampler2D texture;
