@@ -11,8 +11,7 @@
 namespace Donut
 {
 //Changes for Open GL ES 3.2
-std::string VertSrc = R"glsl(
-	#version 320 es
+std::string VertSrc = R"glsl(#version 320 es
 	precision highp float;
 	precision highp int;
 
@@ -30,8 +29,7 @@ std::string VertSrc = R"glsl(
 	}
 )glsl";
 
-std::string FragSrc = R"glsl(
-	#version 320 es
+std::string FragSrc = R"glsl(#version 320 es
 	
 	precision highp float;
 	precision highp int;
