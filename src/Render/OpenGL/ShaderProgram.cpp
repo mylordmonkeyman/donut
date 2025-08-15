@@ -40,8 +40,8 @@ ShaderProgram::ShaderProgram(const std::string& vertexSource, const std::string&
 	if (linkStatus == GL_FALSE)
 	{
 		GLint infoLogLen = 0;
-		glGetShaderiv(_program, GL_INFO_LOG_LENGTH, &infoLogLen);
-
+		//glGetShaderiv(_program, GL_INFO_LOG_LENGTH, &infoLogLen);
+		glGetProgramInfoLog(_program, GL_INFO_LOG_LENGTH, &infoLogLen);
 		char* infoLog = new char[infoLogLen];
 		glGetProgramInfoLog(_program, infoLogLen, &infoLogLen, infoLog);
 		std::fprintf(stderr, "ShaderProgram linking errors:\n%s\n", infoLog); // throw an exception?
