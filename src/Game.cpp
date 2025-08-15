@@ -136,9 +136,11 @@ Game::Game(int argc, char** argv)
 	_skinShaderProgram = std::make_unique<GL::ShaderProgram>(skinVertSrc, skinFragSrc);
 
 	#ifdef NDEBUG
-		bool isCompiled = false;
-		glGetShaderiv(_skinShaderProgram, GL_COMPILE_STATUS, &isCompiled).
-		std::clog << "_skinShaderProgram isCompiled = " << isCompiled << std::endl;
+		GLint isLinkedShader = 0;
+		// Assuming GL::ShaderProgram has a method to get the shader/program ID
+		// You'll need to replace GetProgramID() with the actual method name
+		glGetProgramiv(_skinShaderProgram->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
+		std::clog << "_skinShaderProgram isLinkedShader = " << isLinkedShader << std::endl;	
 	#endif
 	
 	loadGlobal();
