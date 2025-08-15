@@ -31,21 +31,23 @@ Level::Level()
 
 	_worldShader = std::make_unique<GL::ShaderProgram>(worldVertSrc, worldFragSrc);
 	#ifdef NDEBUG
-		bool isCompiled = false;
-		glGetShaderiv(_worldShader, GL_COMPILE_STATUS, &isCompiled).
-		std::clog << "_worldShader isCompiled = " << isCompiled << std::endl;
+		GLint isLinkedShader = 0;
+		// Assuming GL::ShaderProgram has a method to get the shader/program ID
+		// You'll need to replace GetProgramID() with the actual method name
+		glGetProgramiv(_worldShader->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
+		std::clog << "_worldShader isLinkedShader = " << isLinkedShader << std::endl;
 	#endif
 	_worldInstancedShader = std::make_unique<GL::ShaderProgram>(worldInstancedVertSrc, worldFragSrc);
 	#ifdef NDEBUG
-		isCompiled = false;
-		glGetShaderiv(_worldInstancedShader, GL_COMPILE_STATUS, &isCompiled).
-		std::clog << "_worldInstancedShader isCompiled = " << isCompiled << std::endl;
+		isLinkedShader = 0;
+		glGetProgramiv(_worldInstancedShader->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
+		std::clog << "_worldInstancedShader isLinkedShader = " << isLinkedShader << std::endl;
 	#endif
 	_billboardBatchShader = std::make_unique<GL::ShaderProgram>(billboardBatchVertSrc, worldFragSrc);
 	#ifdef NDEBUG
-		isCompiled = false;
-		glGetShaderiv(_billboardBatchShader, GL_COMPILE_STATUS, &isCompiled).
-		std::clog << "_billboardBatchShader isCompiled = " << isCompiled << std::endl;
+		isLinkedShader = 0;
+		glGetProgramiv(_billboardBatchShader->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
+		std::clog << "_billboardBatchShader isLinkedShader = " << isLinkedShader << std::endl;
 	#endif
 	
 	// todo: move this into Game.cpp or something else ?
