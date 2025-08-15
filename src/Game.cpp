@@ -136,14 +136,14 @@ Game::Game(int argc, char** argv)
 	const auto skinFragSrc = File::ReadAll("shaders/skin.frag");
 	_skinShaderProgram = std::make_unique<GL::ShaderProgram>(skinVertSrc, skinFragSrc);
 
-	#ifdef NDEBUG
+/*	#ifdef NDEBUG
 		GLint isLinkedShader = 0;
 		// Assuming GL::ShaderProgram has a method to get the shader/program ID
 		// You'll need to replace GetProgramID() with the actual method name
 		glGetProgramiv(_skinShaderProgram->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
 		std::clog << "_skinShaderProgram isLinkedShader = " << isLinkedShader << std::endl;	
 	#endif
-	
+*/	
 	loadGlobal();
 	LoadModel("homer", "homer");
 
