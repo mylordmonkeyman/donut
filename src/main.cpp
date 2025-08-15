@@ -37,6 +37,12 @@ int main(int argc, char** argv)
 	}
 	catch (std::runtime_error& e)
 	{
+		std::cout << "Runtime Error: " << e.what() << std::endl;
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Fatal error", e.what(), nullptr);
+		return EXIT_FAILURE;
+	} catch (std::exception &e)
+	{
+		std::cout << "Other exception: " << e.what() << std::endl;
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Fatal error", e.what(), nullptr);
 		return EXIT_FAILURE;
 	}
