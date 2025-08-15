@@ -1,5 +1,6 @@
-//#version 330
 #version 320 es
+//#version 330
+
 // Changes for Open GL ES 3.2
 precision highp float;
 
