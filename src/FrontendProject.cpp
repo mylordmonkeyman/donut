@@ -5,7 +5,7 @@
 #include <Game.h>
 #include <P3D/P3D.generated.h>
 #include <P3D/P3DFile.h>
-#include <Render/OpenGL/GLTexture2D.h>
+// #include <Render/OpenGL/GLTexture2D.h>
 #include <Render/Texture.h>
 #include <ResourceManager.h>
 #include "Core/FileSystem.h"
