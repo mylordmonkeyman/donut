@@ -1,3 +1,4 @@
+/*
 // Copyright 2019-2020 the donut authors. See AUTHORS.md
 
 #pragma once
@@ -36,3 +37,4 @@ private:
 };
 
 } // namespace Donut::GL
+*/
