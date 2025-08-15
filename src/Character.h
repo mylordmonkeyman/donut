@@ -17,7 +17,7 @@ namespace GL
 {
 class ShaderProgram;
 class TextureBuffer;
-class GLTexture2D;
+// class GLTexture2D;
 } // namespace GL
 
 namespace P3D
