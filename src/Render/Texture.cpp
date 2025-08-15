@@ -24,18 +24,28 @@ Texture::Texture(const P3D::Texture& texture)
 	{
 		auto imageData = P3D::ImageDecoder::Decode(image->GetData());
 
+		// Use sized internal formats (OpenGL ES 3.2 expects sized internal formats like GL_RGB8/GL_RGBA8)
 		if (imageData.comp == 4)
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)_width, (GLsizei)_height, 0, GL_RGBA, GL_UNSIGNED_BYTE,
+		{
+			// RGBA image
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, (GLsizei)_width, (GLsizei)_height, 0, GL_RGBA, GL_UNSIGNED_BYTE,
 			             imageData.data.data());
+		}
 		else
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)_width, (GLsizei)_height, 0, GL_RGB, GL_UNSIGNED_BYTE,
+		{
+			// RGB image
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, (GLsizei)_width, (GLsizei)_height, 0, GL_RGB, GL_UNSIGNED_BYTE,
 			             imageData.data.data());
+		}
 
 		break;
 	}
 	default: throw std::runtime_error("non-png texture");
 	}
-
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// generate mipmaps :)
 	glGenerateMipmap(GL_TEXTURE_2D);
 }
