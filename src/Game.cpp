@@ -135,6 +135,12 @@ Game::Game(int argc, char** argv)
 	const auto skinFragSrc = File::ReadAll("shaders/skin.frag");
 	_skinShaderProgram = std::make_unique<GL::ShaderProgram>(skinVertSrc, skinFragSrc);
 
+	#ifdef NDEBUG
+		bool isCompiled = false;
+		glGetShaderiv(_skinShaderProgram, GL_COMPILE_STATUS, &isCompiled).
+		std::clog << "_skinShaderProgram isCompiled = " << isCompiled << std::endl;
+	#endif
+	
 	loadGlobal();
 	LoadModel("homer", "homer");
 
