@@ -16,7 +16,7 @@ TextureBuffer::TextureBuffer(): m_handle(0), m_bufferHandle(0)
 	glBindBuffer(GL_TEXTURE_BUFFER, 0);
 
 	glBindTexture(GL_TEXTURE_BUFFER, m_handle);
-	glTexBuffer(GL_TEXTURE_BUFFER, GL_RGBA32F, m_bufferHandle);
+	//glTexBuffer(GL_TEXTURE_BUFFER, GL_RGBA32F, m_bufferHandle);
 	glBindTexture(GL_TEXTURE_BUFFER, 0);
 }
 
@@ -39,6 +39,7 @@ void TextureBuffer::SetBuffer(void* buffer, size_t length)
 {
 	glBindBuffer(GL_TEXTURE_BUFFER, m_bufferHandle);
 	glBufferData(GL_TEXTURE_BUFFER, length, buffer, GL_DYNAMIC_READ);
+	glTexBuffer(GL_TEXTURE_BUFFER, GL_RGBA32F, m_bufferHandle);
 	glBindBuffer(GL_TEXTURE_BUFFER, 0);
 }
 
