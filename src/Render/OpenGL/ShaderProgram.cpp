@@ -147,7 +147,7 @@ GLuint ShaderProgram::createSubShader(GLenum type, const std::string& source)
 		char* infoLog = new char[infoLogLen];
 		glGetShaderInfoLog(shader, infoLogLen, &infoLogLen, infoLog);
 		std::fprintf(stderr, "ShaderProgram compile errors:\n%s\n", infoLog); // throw an exception?
-		std::clog << "Shader text: " << source << std::endl;
+		fprintf(stderr, "Shader text: %s\n", source.c_str());
 		delete[] infoLog;
 
 		glDeleteShader(shader);
