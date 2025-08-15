@@ -102,7 +102,7 @@ void Shader::Bind(GLuint unit) const
 {
 	_diffuseTexture->Bind(unit);
 	glBindSampler(unit, _glSampler);
-	glSamplerParameterf(_glSampler, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
 }
 
 } // namespace Donut
