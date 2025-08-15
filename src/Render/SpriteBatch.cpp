@@ -36,7 +36,7 @@ std::string SpriteBatchFragSrc = R"glsl(#version 320 es
 		
 		precision highp float; 
 
-		uniform sampler2D texture;
+		uniform sampler2D u_texture;
 
 		in vec2 frag_texcoord;
 		in vec4 frag_color;
@@ -45,8 +45,7 @@ std::string SpriteBatchFragSrc = R"glsl(#version 320 es
 
 		void main()
 		{
-			outColor = texture(texture, frag_texcoord) * frag_color;
-//			outColor = texture2D(texture, frag_texcoord) * frag_color;
+			outColor = texture(u_texture, frag_texcoord) * frag_color;
 		}
 	)glsl";
 
