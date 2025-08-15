@@ -1,5 +1,5 @@
-//#version 330
 #version 320 es
+//#version 330
 // Changes to Open GL ES 3.2
 
 layout(location = 0) in vec3 position;
