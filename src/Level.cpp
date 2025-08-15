@@ -30,9 +30,24 @@ Level::Level()
 	const auto billboardBatchVertSrc = File::ReadAll("shaders/billboard_batch.vert");
 
 	_worldShader = std::make_unique<GL::ShaderProgram>(worldVertSrc, worldFragSrc);
+	#ifdef NDEBUG
+		bool isCompiled = false;
+		glGetShaderiv(_worldShader, GL_COMPILE_STATUS, &isCompiled).
+		std::clog << "_worldShader isCompiled = " << isCompiled << std::endl;
+	#endif
 	_worldInstancedShader = std::make_unique<GL::ShaderProgram>(worldInstancedVertSrc, worldFragSrc);
+	#ifdef NDEBUG
+		isCompiled = false;
+		glGetShaderiv(_worldInstancedShader, GL_COMPILE_STATUS, &isCompiled).
+		std::clog << "_worldInstancedShader isCompiled = " << isCompiled << std::endl;
+	#endif
 	_billboardBatchShader = std::make_unique<GL::ShaderProgram>(billboardBatchVertSrc, worldFragSrc);
-
+	#ifdef NDEBUG
+		isCompiled = false;
+		glGetShaderiv(_billboardBatchShader, GL_COMPILE_STATUS, &isCompiled).
+		std::clog << "_billboardBatchShader isCompiled = " << isCompiled << std::endl;
+	#endif
+	
 	// todo: move this into Game.cpp or something else ?
 	/*std::array<std::string, 7> carFiles {
 	    "art/cars/mrplo_v.p3d",
