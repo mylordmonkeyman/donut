@@ -67,7 +67,7 @@ Window::Window(const std::string& title, const int width, const int height)
 	_glContext = std::move(std::unique_ptr<SDL_GLContext, SDLDestroyer>(&context));
 
 	// Load GL extensions using glad
-	if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
+	if (!gladLoadGLES2Loader((GLADloadproc)SDL_GL_GetProcAddress))
 		throw std::runtime_error("Failed to initialize the OpenGL context.");
 
 	std::cout << "OpenGL version loaded: " << GLVersion.major << "." << GLVersion.minor << "\n"
