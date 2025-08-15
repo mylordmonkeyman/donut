@@ -22,8 +22,8 @@ ResourceManager::~ResourceManager() = default;
 
 void ResourceManager::LoadTexture(const P3D::Texture& texture)
 {
-	if (_textures.find(texture.GetName()) != _textures.end())
-		fmt::print("Texture {0} already loaded\n", texture.GetName());
+//	if (_textures.find(texture.GetName()) != _textures.end())
+//		fmt::print("Texture {0} already loaded\n", texture.GetName());
 
 	_textures[texture.GetName()] = std::make_unique<Texture>(texture);
 }
@@ -38,8 +38,8 @@ void ResourceManager::LoadTexture(const P3D::Sprite& sprite)
 
 void ResourceManager::LoadShader(const P3D::Shader& shader)
 {
-	if (_shaders.find(shader.GetName()) != _shaders.end())
-		fmt::print("Shader {0} already loaded\n", shader.GetName());
+//	if (_shaders.find(shader.GetName()) != _shaders.end())
+//		fmt::print("Shader {0} already loaded\n", shader.GetName());
 
 	_shaders[shader.GetName()] = std::make_unique<Shader>(shader);
 }
