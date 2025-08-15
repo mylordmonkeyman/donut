@@ -784,6 +784,7 @@ PFNGLISVERTEXARRAYOESPROC glad_glIsVertexArrayOES = NULL;
 PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC glad_glFramebufferTextureMultiviewOVR = NULL;
 PFNGLNAMEDFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC glad_glNamedFramebufferTextureMultiviewOVR = NULL;
 PFNGLFRAMEBUFFERTEXTUREMULTISAMPLEMULTIVIEWOVRPROC glad_glFramebufferTextureMultisampleMultiviewOVR = NULL;
+int GLAD_GL_EXT_texture_filter_anisotropic = 0;
 static void load_GL_ES_VERSION_2_0(GLADloadproc load) {
 	if(!GLAD_GL_ES_VERSION_2_0) return;
 	glad_glActiveTexture = (PFNGLACTIVETEXTUREPROC)load("glActiveTexture");
@@ -1505,6 +1506,7 @@ static int find_extensionsGLES2(void) {
 	GLAD_GL_OVR_multiview = has_ext("GL_OVR_multiview");
 	GLAD_GL_OVR_multiview2 = has_ext("GL_OVR_multiview2");
 	GLAD_GL_OVR_multiview_multisampled_render_to_texture = has_ext("GL_OVR_multiview_multisampled_render_to_texture");
+	GLAD_GL_EXT_texture_filter_anisotropic = has_ext("GL_EXT_texture_filter_anisotropic");
 	free_exts();
 	return 1;
 }
