@@ -30,25 +30,25 @@ Level::Level()
 	const auto billboardBatchVertSrc = File::ReadAll("shaders/billboard_batch.vert");
 
 	_worldShader = std::make_unique<GL::ShaderProgram>(worldVertSrc, worldFragSrc);
-	#ifdef NDEBUG
+/*	#ifdef NDEBUG
 		GLint isLinkedShader = 0;
 		// Assuming GL::ShaderProgram has a method to get the shader/program ID
 		// You'll need to replace GetProgramID() with the actual method name
 		glGetProgramiv(_worldShader->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
 		std::clog << "_worldShader isLinkedShader = " << isLinkedShader << std::endl;
-	#endif
+	#endif */
 	_worldInstancedShader = std::make_unique<GL::ShaderProgram>(worldInstancedVertSrc, worldFragSrc);
-	#ifdef NDEBUG
+/*	#ifdef NDEBUG
 		isLinkedShader = 0;
 		glGetProgramiv(_worldInstancedShader->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
 		std::clog << "_worldInstancedShader isLinkedShader = " << isLinkedShader << std::endl;
-	#endif
+	#endif */
 	_billboardBatchShader = std::make_unique<GL::ShaderProgram>(billboardBatchVertSrc, worldFragSrc);
-	#ifdef NDEBUG
+/*	#ifdef NDEBUG
 		isLinkedShader = 0;
 		glGetProgramiv(_billboardBatchShader->GetRawHandle(), GL_LINK_STATUS, &isLinkedShader);
 		std::clog << "_billboardBatchShader isLinkedShader = " << isLinkedShader << std::endl;
-	#endif
+	#endif */
 	
 	// todo: move this into Game.cpp or something else ?
 	/*std::array<std::string, 7> carFiles {
